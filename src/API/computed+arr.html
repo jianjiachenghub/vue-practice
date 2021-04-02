@@ -53,6 +53,7 @@
           }
           console.log(this.arr)
           console.log("可以发现arr修改了view没有更新")
+          // vm.$set(this.arr,0,newObj) 这样可以跟新
         },
         handleChange2:function(){
           this.arr[0].name = 'change'
