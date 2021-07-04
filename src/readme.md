@@ -1,5 +1,27 @@
 ## Vue 
 
+
+### 运行时+ 编译时 vs 运行时
+
+vue的安装版本可分为运行时 + 编译器和只包含运行时两种，这两种版本的区别在于是否含有编译器。
+
+如果需要在客户端上编译模板 (即：将字符串传递给 template 选项，或者使用元素的 DOM 内 HTML 作为模板挂载到元素)，你将需要编译器，因此需要完整的构建版本：
+```js
+// 需要编译器
+Vue.createApp({
+  template: '<div>{{ hi }}</div>'
+})
+
+// 不需要
+Vue.createApp({
+  render() {
+    return Vue.h('div', {}, this.hi)
+  }
+})
+```
+
+如果你需要在运行时处理之前编译templates，比如结合Webpack使用 vue-loader 时，*.vue 文件中的模板会在构建时预编译为 JavaScript，在最终的捆绑包中并不需要编译器compiler，因此可以只使用运行时runtime-only构建版本。因为仅仅包含运行时编译比完整版少30%的代码体积
+
 ### $event使用
 
 子组件向父组件传值，父组件在接受子组件传过来的值时，还会附加一些其他参数
