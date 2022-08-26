@@ -21,6 +21,8 @@ Ref的作用：
 
 ## reactive
 
+- https://www.vuemastery.com/courses/vue-3-reactivity/vue3-reactivity/
+
 返回对象的响应式副本。响应式转换是“深层”的——它影响所有嵌套 property。在基于 ES2015 Proxy 的实现中，返回的 proxy 是不等于原始对象的。建议只使用响应式 proxy，避免依赖原始对象。
 
 
